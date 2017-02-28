@@ -2,14 +2,14 @@
     "name":        "msg-cloud-vdc-cli",
     "homepage":    "https://github.com/rse/msg-cloud-vdc-cli",
     "description": "Simple msg Cloud Virtual Data-Center (vDC) Command-Line Interface (CLI)",
-    "version":     "0.9.0",
+    "version":     "0.9.1",
     "license":     "MPL-2.0",
     "author": {
         "name":    "Ralf S. Engelschall",
         "email":   "rse@engelschall.com",
         "url":     "http://engelschall.com"
     },
-    "keywords":    [ "msg-cloud", "vdc", "cli" ],
+    "keywords":    [ "msg", "cloud", "vdc", "cli" ],
     "scripts": {
         "vdc":                  "node vdc.js"
     },
