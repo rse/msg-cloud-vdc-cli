@@ -11,6 +11,7 @@ This is a very simple, incomplete and rookie Command-Line Interface
 (CLI) for the Gridscale Virtual Data-Center (vDC), as used by the
 msg systems ag. It currently provides only VM power on/off and SSH
 remote command execution in order to conveniently start and stop VMs.
+It is based on Node.js.
 
 ATTENTION
 ---------
