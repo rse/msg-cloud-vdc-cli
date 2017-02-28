@@ -9,15 +9,16 @@
 */
 
 /*  load external requirements  */
-const Inquirer   = require("inquirer")
-const Bluebird   = require("bluebird")
-const co         = require("co")
-const chalk      = require("chalk")
-const Caporal    = require("caporal")
-const SuperAgent = require("superagent")
-const SSH        = require("node-ssh")
-const HostId     = require("hostid")
-const path       = require("path")
+const Inquirer        = require("inquirer")
+const Bluebird        = require("bluebird")
+const co              = require("co")
+const chalk           = require("chalk")
+const Caporal         = require("caporal")
+const SuperAgent      = require("superagent")
+const SuperAgentProxy = require("superagent-proxy")
+const SSH             = require("node-ssh")
+const HostId          = require("hostid")
+const path            = require("path")
 
 /*  provide an outer asynchronous environment  */
 co(async () => {
@@ -37,7 +38,12 @@ co(async () => {
         }
 
         /*  create a new cookie-aware HTTP agent  */
+        SuperAgentProxy(SuperAgent)
         const agent = SuperAgent.agent()
+
+        /*  optionaly support HTTP proxy  */
+        if (process.env["http_proxy"] !== undefined)
+            agent.proxy(process.env["http_proxy"])
 
         /*  authenticate via login endpoint  */
         let res = await agent

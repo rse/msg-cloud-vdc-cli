@@ -25,7 +25,8 @@
         "node-ssh":             "~4.0.1",
         "inquirer":             "~3.0.5",
         "hostid":               "~1.0.3",
-        "superagent":           "~3.5.0"
+        "superagent":           "~3.5.0",
+        "superagent-proxy":     "~1.0.2"
     },
     "engines": {
         "node":                 ">=7.6.0"
