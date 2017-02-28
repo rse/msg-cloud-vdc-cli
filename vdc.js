@@ -81,7 +81,7 @@ co(async () => {
                 throw new Error(`invalid VM name "${vm}"`)
 
             /*  power on/off a particular VM  */
-            console.log(`${chalk.blue(vm)}$: switching power ${level ? "on" : "off"}`)
+            console.log(`${chalk.blue(vm)}: switching power ${level ? "on" : "off"}`)
             res = await agent
                 .patch(`${apiURL}/objects/servers/${id}/power`)
                 .accept("application/json")
