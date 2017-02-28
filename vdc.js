@@ -22,6 +22,9 @@ const path            = require("path")
 
 /*  provide an outer asynchronous environment  */
 co(async () => {
+    /*  determine package information  */
+    const pkg = require(path.join(__dirname, "package.json"))
+
     /*  determine unique host identifier  */
     let hostid = HostId().replace(/-/g, "")
 
@@ -44,6 +47,7 @@ co(async () => {
         const request = (agent) => {
             if (proxy !== null)
                 agent.proxy(proxy)
+            agent.set("User-Agent", `${pkg.name}/${pkg.version}`)
             return agent
         }
 
@@ -134,7 +138,6 @@ co(async () => {
     }
 
     /*  parse command-line arguments  */
-    const pkg = require(path.join(__dirname, "package.json"))
     let command = null
     const action = (name) =>
         (args, opts, logger) =>
