@@ -163,7 +163,7 @@ co(async () => {
     if (command == null)
         process.exit(1)
     switch (command.name) {
-        case "power-on":  await vdcPower(true, command.args.vmName, command.opts); break
+        case "power-on":  await vdcPower(true,  command.args.vmName, command.opts); break
         case "power-off": await vdcPower(false, command.args.vmName, command.opts); break
         case "exec":      await sshCommand(command.args.command, command.args.hostName, command.opts); break
     }
@@ -171,7 +171,7 @@ co(async () => {
     /*  die gracefully  */
     process.exit(0)
 }).catch((err) => {
-    /*  centeral error handling  */
+    /*  central error handling  */
     console.log(`vdc: ${chalk.red("ERROR")}: ${err}`)
     console.log(`vdc: ${chalk.red("ERROR")}: ${require("util").inspect(err, { color: true, depth: 4 })}`)
     process.exit(1)
