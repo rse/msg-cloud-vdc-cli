@@ -13,6 +13,9 @@
     "scripts": {
         "vdc":                  "node vdc.js"
     },
+    "bin": {
+        "vdc":                  "./vdc.js"
+    },
     "dependencies" : {
         "fs-promise":           "~2.0.0",
         "co":                   "~4.6.0",
