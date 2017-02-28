@@ -113,11 +113,12 @@ co(async () => {
             console.log(`${chalk.blue(prefix)}$ ${cmd}`)
             const ssh = new SSH()
             await ssh.connect({
-                host:     host,
-                username: opts.username,
-                password: opts.password
+                host:         host,
+                username:     opts.username,
+                password:     opts.password,
+                readyTimeout: 5*1000,
             })
-            let result = await ssh.execCommand(cmd, {})
+            let result = await ssh.execCommand(cmd, { pty: true })
             if (result.stdout !== "")
                 console.log(result.stdout.replace(/^/mg, chalk.blue(prefix)))
         })
