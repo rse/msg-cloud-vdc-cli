@@ -37,16 +37,18 @@ co(async () => {
             opts.password = answers.password
         }
 
-        /*  create a new cookie-aware HTTP agent  */
+        /*  create a new cookie-aware and proxy-aware HTTP agent  */
         SuperAgentProxy(SuperAgent)
+        const proxy = process.env["http_proxy"] ? process.env["http_proxy"] : null
         const agent = SuperAgent.agent()
-
-        /*  optionaly support HTTP proxy  */
-        if (process.env["http_proxy"] !== undefined)
-            agent.proxy(process.env["http_proxy"])
+        const request = (agent) => {
+            if (proxy !== null)
+                agent.proxy(proxy)
+            return agent
+        }
 
         /*  authenticate via login endpoint  */
-        let res = await agent
+        let res = await request(agent
             .post(`${opts.location}/api/login`)
             .accept("application/json")
             .send({
@@ -55,21 +57,21 @@ co(async () => {
                 hash:        hostid,
                 force_login: true,
                 lang:        "en"
-            })
+            }))
 
         /*  determine API userid/token via panel dialog  */
-        res = await agent
-            .get(`${opts.location}/Panel/`)
+        res = await request(agent
+            .get(`${opts.location}/Panel/`))
         let [ , apiUser  ] = res.text.match(/"user":\s*'(.+?)'/)
         let [ , apiToken ] = res.text.match(/"token":\s*'(.+?)'/)
         let [ , apiURL   ] = res.text.match(/"api":\s*'(.+?)'/)
 
         /*  determine name/UUID of all servers  */
-        res = await agent
+        res = await request(agent
             .get(`${apiURL}/objects/servers`)
             .accept("application/json")
             .set("X-Auth-UserId", apiUser)
-            .set("X-Auth-Token",  apiToken)
+            .set("X-Auth-Token",  apiToken))
         let name2id = {}
         let servers = res.body.servers
         Object.keys(servers).forEach((id) => {
@@ -88,12 +90,12 @@ co(async () => {
 
             /*  power on/off a particular VM  */
             console.log(`${chalk.blue(vm)}: switching power ${level ? "on" : "off"}`)
-            res = await agent
+            res = await request(agent
                 .patch(`${apiURL}/objects/servers/${id}/power`)
                 .accept("application/json")
                 .set("X-Auth-UserId", apiUser)
                 .set("X-Auth-Token",  apiToken)
-                .send({ power: level })
+                .send({ power: level }))
 
             /*  shameless workaround: vDC API dislikes subsequent power togglings within too short time  */
             if (++vmcur < vmmax)
