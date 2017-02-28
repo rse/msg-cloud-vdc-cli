@@ -11,9 +11,13 @@ This is a very simple, incomplete and rookie Command-Line Interface
 (CLI) for the Gridscale Virtual Data-Center (vDC), as used by the
 msg systems ag. It currently provides only VM power on/off and SSH
 remote command execution in order to conveniently start and stop VMs.
-It is currently intended to be used inside the special Gridscale vDC
-environment of the msg Cloud only and potentially will NOT work with the
-general Gridscale vDC.
+
+ATTENTION
+---------
+
+This Gridscale vDC client is currently intended to be used inside the
+special Gridscale vDC environment of the msg Cloud ONLY. It potentially
+will NOT work with the general Gridscale vDC!
 
 License
 -------
