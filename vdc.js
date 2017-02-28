@@ -54,8 +54,9 @@ co(async () => {
         /*  determine API userid/token via panel dialog  */
         res = await agent
             .get(`${opts.location}/Panel/`)
-        let [ , apiUser, apiToken ] = res.text.match(/"user":\s*'(.+?)',\s*"token":\s*'(.+?)'/)
-        let [ , apiURL ] = res.text.match(/"api":\s*'(.+?)'/)
+        let [ , apiUser  ] = res.text.match(/"user":\s*'(.+?)'/)
+        let [ , apiToken ] = res.text.match(/"token":\s*'(.+?)'/)
+        let [ , apiURL   ] = res.text.match(/"api":\s*'(.+?)'/)
 
         /*  determine name/UUID of all servers  */
         res = await agent
