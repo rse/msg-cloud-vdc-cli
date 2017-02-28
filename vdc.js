@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
-**  vdc.js -- Simple Gridscale vDC Command-Line Interface (CLI)
+**  vdc.js -- Simple msg Cloud vDC Command-Line Interface (CLI)
 **  Copyright (c) 2017 Ralf S. Engelschall <http://engelschall.com>
 **
 **  This Source Code Form is subject to the terms of the Mozilla Public
@@ -132,7 +132,7 @@ co(async () => {
             command = { name: name, args, opts }
     Caporal
         .version(pkg.version)
-        .description("Simple Gridscale Virtual Data Center (vDC) Command-Line Interface (CLI)")
+        .description("Simple msg Cloud Virtual Data Center (vDC) Command-Line Interface (CLI)")
 
         /*  power-on command  */
         .command("power-on", "Switch power of a VM ON via vDC").alias("on")
@@ -143,7 +143,7 @@ co(async () => {
         .action(action("power-on"))
 
         /*  power-off command  */
-        .command("power-off", "Swith power of a VM OFF via vDC").alias("off")
+        .command("power-off", "Switch power of a VM OFF via vDC").alias("off")
         .option("-l, --location <url>", "The vDC URL", /^http/, "https://vdc.msg.systems")
         .option("-u, --username <username>", "The vDC login username (usually the Email address)")
         .option("-p, --password <password>", "The vDC login password")

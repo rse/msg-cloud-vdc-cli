@@ -1,24 +1,17 @@
 
-gridscale-vdc-cli
+msg-cloud-vdc-cli
 =================
 
-Simple Gridscale Virtual Data-Center (vDC) Command-Line Interface (CLI)
+Simple msg Cloud Virtual Data-Center (vDC) Command-Line Interface (CLI)
 
 Abstract
 --------
 
 This is a very simple, incomplete and rookie Command-Line Interface
-(CLI) for the Gridscale Virtual Data-Center (vDC), as used by the
+(CLI) for the msg Cloud Virtual Data-Center (vDC), as used by the
 msg systems ag. It currently provides only VM power on/off and SSH
 remote command execution in order to conveniently start and stop VMs.
 It is based on Node.js.
-
-ATTENTION
----------
-
-This Gridscale vDC client is currently intended to be used inside the
-special Gridscale vDC environment of the msg Cloud ONLY. It potentially
-will NOT work with the general Gridscale vDC!
 
 License
 -------
