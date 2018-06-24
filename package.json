@@ -17,15 +17,15 @@
         "vdc":                  "./vdc.js"
     },
     "dependencies" : {
-        "co":                   "~4.6.0",
-        "chalk":                "~2.3.0",
-        "caporal":              "~0.8.0",
-        "bluebird":             "~3.5.1",
-        "node-ssh":             "~5.0.0",
-        "inquirer":             "~4.0.1",
-        "hostid":               "~1.0.9",
-        "superagent":           "~3.8.1",
-        "superagent-proxy":     "~1.0.2"
+        "co":                   "4.6.0",
+        "chalk":                "2.4.1",
+        "caporal":              "0.10.0",
+        "bluebird":             "3.5.1",
+        "node-ssh":             "5.1.2",
+        "inquirer":             "6.0.0",
+        "hostid":               "1.0.14",
+        "superagent":           "3.8.3",
+        "superagent-proxy":     "1.0.3"
     },
     "engines": {
         "node":                 ">=7.6.0"
