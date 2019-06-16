@@ -18,14 +18,14 @@
     },
     "dependencies" : {
         "co":                   "4.6.0",
-        "chalk":                "2.4.1",
-        "caporal":              "0.10.0",
-        "bluebird":             "3.5.1",
-        "node-ssh":             "5.1.2",
-        "inquirer":             "6.0.0",
-        "hostid":               "1.0.14",
-        "superagent":           "3.8.3",
-        "superagent-proxy":     "1.0.3"
+        "chalk":                "2.4.2",
+        "caporal":              "1.2.0",
+        "bluebird":             "3.5.5",
+        "node-ssh":             "6.0.0",
+        "inquirer":             "6.3.1",
+        "hostid":               "1.0.19",
+        "superagent":           "5.1.0",
+        "superagent-proxy":     "2.0.0"
     },
     "engines": {
         "node":                 ">=7.6.0"
